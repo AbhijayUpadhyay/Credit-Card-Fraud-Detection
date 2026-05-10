@@ -1,4 +1,6 @@
-# This is a project that utilizies Machine Learning to detect, cluster, and analyze fraudulent transactions involving real credit card data. #
+# Credit Card Fraud Detection #
+
+This is a project that utilizies Machine Learning to detect, cluster, and analyze fraudulent transactions involving real credit card data.
 
 Abstract: The purpose of this project is to examine how Machine Learning can intersect with the domain of fraud, specifically in credit card transactions. This paper examines how machine learning models deal with flagging fraud when it is exceptionally rare, as well as their accuracy, while also protecting consumer privacy. Clusters are generated to potentially group all future transactions into a specific cluster, so that it can be seen if a specific transaction is in an at risk cluster. SMOTE is also used to handle imbalanced data, and Logistic Regression and XGBoost models are used for classification. The paper also analyzes which factors are most important when dealing with fraud detection, as a guideline as to how better audit transactions and predict potentially fraudulent ones in the future.
 
