@@ -1,10 +1,94 @@
-# Credit Card Fraud Detection #
+# Credit Card Fraud Detection
 
-This is a project that utilizies Machine Learning to detect, cluster, and analyze fraudulent transactions involving real credit card data.
+This project uses machine learning to detect and analyze fraudulent credit card transactions in a highly imbalanced dataset. The goal was to compare fraud detection models, handle rare fraud cases, and identify transaction patterns that may indicate higher fraud risk.
 
-Abstract: The purpose of this project is to examine how Machine Learning can intersect with the domain of fraud, specifically in credit card transactions. This paper examines how machine learning models deal with flagging fraud when it is exceptionally rare, as well as their accuracy, while also protecting consumer privacy. Clusters are generated to potentially group all future transactions into a specific cluster, so that it can be seen if a specific transaction is in an at risk cluster. SMOTE is also used to handle imbalanced data, and Logistic Regression and XGBoost models are used for classification. The paper also analyzes which factors are most important when dealing with fraud detection, as a guideline as to how better audit transactions and predict potentially fraudulent ones in the future.
+## Project Source
 
-Introduction: In the past year, 61 million Americans were victims of Credit Card Fraud, totaling 6.1 billion dollars of fraudulent transactions. 61% of Americans have been victims of Credit Card fraud, and 51% have experienced it multiple times. In terms of scale, credit Card Fraud is something impacting hundreds of millions, if not billions, of people across the world. Only 5% of credit card fraud is done using a physically stolen card. The rest happens through data breaches, hacks, and stolen passwords. As banks and financial institutions increase their usage of technology, there become more and more technological backdoors from fraudsters to exploit to gain access to credit card data. 
-Since technology is being used for fraud, it’s also important to understand how it can be used to detect and prevent fraud at well. There are far too many transactions for humans to audit even a decent portion of them, making it necessary to use computers to infer whether a transaction is fraudulent or not.
-This is what leads us to Machine Learning’s use in the field. We use machine learning techniques and models to cluster transactions based on possibility of being fraudulent, as well as using machine learning models to analyze the factors surrounding a transaction to flag whether a transaction is fraudulent or not. This allows for the use of computers to audit all credit card transactions and detect fraud and prevent financial harm. 
+Intro to Data Science Course Project
 
+## Dataset
+
+The project uses the Kaggle Credit Card Fraud Detection dataset, which contains anonymized transaction data from real credit card transactions. Most features were transformed using PCA to protect customer privacy, while `Time` and `Amount` were scaled during preprocessing.
+
+Dataset: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
+## Key Technologies
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- XGBoost
+- SMOTE
+- PCA
+- K-Means Clustering
+- SHAP
+- Matplotlib
+
+## Project Workflow
+
+1. Loaded and reviewed credit card transaction data.
+2. Performed exploratory data analysis to understand class imbalance and transaction patterns.
+3. Scaled the `Time` and `Amount` variables.
+4. Split the dataset into training and testing sets using stratified sampling.
+5. Applied SMOTE to address severe class imbalance in the training data.
+6. Used PCA and K-Means clustering to group transaction patterns and identify higher-risk clusters.
+7. Trained Logistic Regression and XGBoost classification models.
+8. Evaluated model performance using accuracy, precision, recall, F1-score, ROC curves, and precision-recall curves.
+9. Used SHAP analysis to identify the most important variables contributing to fraud predictions.
+
+## Key Findings
+
+- Fraud represented only about 0.173% of all transactions, creating a severe class imbalance problem.
+- SMOTE helped balance the training data by generating synthetic fraud examples.
+- Logistic Regression achieved strong fraud recall but produced more false positives.
+- XGBoost achieved higher overall accuracy and better precision, while still maintaining strong fraud detection performance.
+- SHAP analysis showed that certain anonymized variables, especially `V4` and `V14`, were among the most important predictors of fraud.
+- In fraud detection, recall is especially important because missing a fraudulent transaction is usually more costly than flagging a legitimate transaction for review.
+
+## Model Results
+
+### Logistic Regression
+
+- Accuracy: 97.42%
+- Fraud Precision: 0.06
+- Fraud Recall: 0.92
+- Fraud F1-Score: 0.11
+
+### XGBoost
+
+- Accuracy: 99.51%
+- Fraud Precision: 0.24
+- Fraud Recall: 0.87
+- Fraud F1-Score: 0.38
+
+## Skills Demonstrated
+
+- Fraud detection analytics
+- Machine learning classification
+- Imbalanced data handling
+- SMOTE oversampling
+- Predictive modeling
+- Risk analytics
+- Exploratory data analysis
+- PCA dimensionality reduction
+- K-Means clustering
+- Model evaluation
+- SHAP explainability
+- ETL-style preprocessing
+- Financial data analysis
+
+## Business Relevance
+
+Credit card fraud detection is a high-impact problem for banks, payment processors, fintech companies, and risk teams. This project demonstrates how machine learning can be used to flag suspicious transactions, reduce false negatives, and support fraud prevention workflows.
+
+## Limitations
+
+- The dataset uses anonymized features, so individual transaction variables cannot be fully interpreted.
+- The fraud class is extremely small, requiring synthetic oversampling with SMOTE.
+- The project focuses on model development and analysis, not real-time deployment.
+- Random Forest was considered but not used due to runtime limitations on the full dataset.
+
+## Conclusion
+
+This project shows how machine learning can be applied to detect rare fraudulent transactions in financial data. By combining SMOTE, classification models, clustering, and SHAP explainability, the analysis demonstrates both predictive performance and interpretability in a realistic fraud detection setting.
